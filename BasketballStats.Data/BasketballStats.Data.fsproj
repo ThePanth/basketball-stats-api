@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Models\Statistic.fs" />
+    <Compile Include="Models\Player.fs" />
+    <Compile Include="Models\Game.fs" />
+    <Compile Include="Storage\PlayerStorage.fs" />
+    <Compile Include="Storage\StatisticsStorage.fs" />
+    <Compile Include="Storage\GameStorage.fs" />
+    <Compile Include="Mongo\Models\Statistic.fs" />
+    <Compile Include="Mongo\Models\Player.fs" />
+    <Compile Include="Mongo\Models\Game.fs" />
+    <Compile Include="Mongo\Storage\StatisticsStorage.fs" />
+    <Compile Include="Mongo\Storage\PlayerStorage.fs" />
+    <Compile Include="Mongo\Storage\GameStorage.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MongoDB.Driver" Version="3.2.1" />
+  </ItemGroup>
+
+</Project>

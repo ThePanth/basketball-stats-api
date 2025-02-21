@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package basketballstats;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+option csharp_namespace = "BasketballStats.Protos";
+
+service GameService {
+  rpc CreateGame (CreateGameRequest) returns (GameResponse);
+  rpc GetGame (GetGameRequest) returns (GameResponse);
+  rpc DeleteGame (DeleteGameRequest) returns (google.protobuf.Empty);
+  rpc ListGames (ListGamesRequest) returns (ListGamesResponse);
+  rpc GetGamesByTime (GetGamesByTimeRequest) returns (ListGamesResponse);
+  rpc GetGamesByIds (GetGamesByIdsRequest) returns (ListGamesResponse);
+}
+
+message Game {
+  string id = 1;
+  string team1_name = 2;
+  repeated string team1_players = 3;
+  string team2_name = 4;
+  repeated string team2_players = 5;
+  google.protobuf.Timestamp created_at = 6;
+  optional google.protobuf.Timestamp end_date_time = 7;
+}
+
+message CreateGameRequest {
+  string team1_name = 1;
+  repeated string team1_players = 2;
+  string team2_name = 3;
+  repeated string team2_players = 4;
+}
+
+message GetGameRequest {
+  string game_id = 1;
+}
+
+message DeleteGameRequest {
+  string game_id = 1;
+}
+
+message GameResponse {
+  Game game = 1;
+}
+
+message ListGamesRequest {}
+
+message ListGamesResponse {
+  repeated Game games = 1;
+}
+
+message GetGamesByTimeRequest {
+  optional google.protobuf.Timestamp start_time = 1;
+  optional google.protobuf.Timestamp end_time = 2;
+  optional bool only_finished = 3; // If true, only return games that have `end_date_time` set.
+}
+
+message GetGamesByIdsRequest {
+  repeated string game_ids = 1;
+}

@@ -1,0 +1,21 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/BasketballStats.Api/bin/Debug/net8.0
+/BasketballStats.Api/obj
+/BasketballStats.Api_old/bin/Debug/net8.0
+/BasketballStats.Api_old/obj
+/BasketballStats.Auth/bin/Debug/net8.0
+/BasketballStats.Auth/obj
+/BasketballStats.Auth/obj/Debug/net8.0/ref/BasketballStats.Auth.dll
+/BasketballStats.Core/bin/Debug/net8.0
+/BasketballStats.Core/obj
+/BasketballStats.Core/obj/Debug/net8.0/ref/BasketballStats.Core.dll
+/BasketballStats.Data/bin/Debug/net8.0
+/BasketballStats.Data/bin/Debug/net8.0/BasketballStats.Data.deps.json
+/BasketballStats.Data/obj
+/BasketballStats.Protos/bin/Debug/net8.0
+/BasketballStats.Protos/obj
+/BasketballStats.Protos/obj/Debug/net8.0/Protos/Common.cs

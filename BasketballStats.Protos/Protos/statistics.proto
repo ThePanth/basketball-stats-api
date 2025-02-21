@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+package basketballstats;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+option csharp_namespace = "BasketballStats.Protos";
+
+service StatisticsService {
+  rpc GetPlayerStatistics (GetPlayerStatisticsRequest) returns (StatisticsResponse);
+  rpc GetGameStatistics (GetGameStatisticsRequest) returns (StatisticsResponse);
+  rpc CreateStatisticEntry (CreateStatisticEntryRequest) returns (StatisticEntryResponse);
+  rpc RemoveStatisticEntry (RemoveStatisticEntryRequest) returns (google.protobuf.Empty);
+}
+
+enum StatisticType {
+  UNKNOWN = 0;
+  TWO_POINT_SUCCESS = 1;
+  TWO_POINT_MISS = 2;
+  THREE_POINT_SUCCESS = 3;
+  THREE_POINT_MISS = 4;
+  ASSIST = 5;
+  REBOUND = 6;
+}
+
+message StatisticEntry {
+  string id = 1;
+  string player_id = 2;
+  string game_id = 3;
+  StatisticType type = 4;
+  google.protobuf.Timestamp timestamp = 5;
+}
+
+message GetPlayerStatisticsRequest {
+  string player_id = 1;
+  optional google.protobuf.Timestamp start_time = 2;
+  optional google.protobuf.Timestamp end_time = 3;
+}
+
+message GetGameStatisticsRequest {
+  string game_id = 1;
+}
+
+message CreateStatisticEntryRequest {
+  string player_id = 1;
+  string game_id = 2;
+  StatisticType type = 3;
+  google.protobuf.Timestamp timestamp = 4;
+}
+
+message RemoveStatisticEntryRequest {
+  optional string statistic_id = 1;
+  optional string player_id = 2;
+  optional string game_id = 3;
+  optional StatisticType type = 4;
+  optional google.protobuf.Timestamp timestamp = 5;
+}
+
+message StatisticEntryResponse {
+  StatisticEntry entry = 1;
+}
+
+message StatisticsResponse {
+  repeated StatisticEntry statistics = 1;
+}

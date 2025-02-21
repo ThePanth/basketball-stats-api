@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <UserSecretsId>f37d0bb7-8256-4d9c-ac5b-2bfded57d224</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Services\StatisticsService.fs" />
+    <Compile Include="Services\PlayerService.fs" />
+    <Compile Include="Services\GameService.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Dockerfile" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore.Server.Reflection" Version="2.67.0" />
+    <PackageReference Include="Grpc.Reflection" Version="2.67.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+	  <PackageReference Include="protobuf-net.Grpc" Version="1.2.2" />
+	  <PackageReference Include="protobuf-net.Grpc.AspNetCore" Version="1.2.2" />
+	  <PackageReference Include="protobuf-net.Reflection" Version="3.2.46" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BasketballStats.Protos\BasketballStats.Protos.csproj" />
+  </ItemGroup>
+
+</Project>
