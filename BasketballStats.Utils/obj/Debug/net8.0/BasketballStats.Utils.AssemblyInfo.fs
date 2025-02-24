@@ -10,7 +10,7 @@ open System.Reflection
 [<assembly: System.Reflection.AssemblyCompanyAttribute("BasketballStats.Utils")>]
 [<assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")>]
 [<assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")>]
-[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+269b18f0c0403bb4291aa8abf1f6da8ece41ed2c")>]
+[<assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb9482cb3e8a4e574b7f56863d9c32c8e1d5e5e8")>]
 [<assembly: System.Reflection.AssemblyProductAttribute("BasketballStats.Utils")>]
 [<assembly: System.Reflection.AssemblyTitleAttribute("BasketballStats.Utils")>]
 [<assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")>]
