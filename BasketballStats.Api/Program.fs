@@ -4,6 +4,7 @@ open BasketballStats.Api.Services
 open Microsoft.AspNetCore.Http
 open Microsoft.AspNetCore.Hosting
 open Microsoft.AspNetCore.Server.Kestrel.Core
+open BasketballStats.Api.DI
 
 open Microsoft.Extensions.DependencyInjection
 
@@ -21,6 +22,9 @@ let main args =
     // Register code-first gRPC services using protobuf-net.Grpc
     builder.Services.AddGrpc() |> ignore
     builder.Services.AddGrpcReflection() |> ignore
+    builder.Services
+    |> addDI
+    |> ignore
     
     let app = builder.Build()
     

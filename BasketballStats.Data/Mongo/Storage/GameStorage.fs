@@ -1,28 +1,29 @@
-﻿module BasketballStats.Data.Repositories.GameStorage
+﻿module BasketballStats.Data.Mongo.GameStorage
 
 open BasketballStats.Data.Mongo.Models
-open BasketballStats.Data.Storage
+open BasketballStats.Data.Mongo.Mapper
 open MongoDB.Driver
-open System
-open MongoDB.Bson
+open BasketballStats.Data.Storage
 
-let createMongoGameStorage (connectionString: string) (databaseName: string) : GameStorage =
-    let client = MongoClient(connectionString)
-    let database = client.GetDatabase(databaseName)
-    let gamesCollection = database.GetCollection<Game>("games")
+let createMongoGameStorage (database: IMongoDatabase) : GameStorage =
+    let gamesCollection = database.GetCollection<MongoGame>("games")
 
     {
         InsertGame = fun game -> async {
-            do! gamesCollection.InsertOneAsync(game) |> Async.AwaitTask
+            do! gamesCollection.InsertOneAsync(game |> toMongoGame) |> Async.AwaitTask
         }
         
         GetGame = fun gameId -> async {
-            let! game = gamesCollection.Find(fun g -> g.Id = gameId).FirstOrDefaultAsync() |> Async.AwaitTask
-            return if isNull game then None else Some game
+            let! game = gamesCollection.Find(fun g -> g.Id.Equals(gameId)).FirstOrDefaultAsync() |> Async.AwaitTask
+            return game 
+                |> Option.ofObj 
+                |> Option.map fromMongoGame
         }
 
         DeleteGame = fun gameId -> async {
-            let filter = Builders<Game>.Filter.Eq(fun g -> g.Id, gameId)
-            do! gamesCollection.DeleteOneAsync(filter) |> Async.AwaitTask
+            let test = fun g -> g.Id, gameId
+            let filter = Builders<MongoGame>.Filter.Eq((fun g -> g.Id), gameId)
+            let! deleteResult = gamesCollection.DeleteOneAsync(filter) |> Async.AwaitTask
+            return deleteResult.DeletedCount > 0L
         }
     }

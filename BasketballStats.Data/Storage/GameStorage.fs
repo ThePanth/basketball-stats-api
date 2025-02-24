@@ -1,4 +1,4 @@
-﻿namespace BasketballStats.Data.Repositories
+﻿namespace BasketballStats.Data.Storage
 
 open System
 open BasketballStats.Data.Models
@@ -6,5 +6,5 @@ open BasketballStats.Data.Models
 type GameStorage = {
     InsertGame: Game -> Async<unit>
     GetGame: Guid -> Async<Game option>
-    DeleteGame: Guid -> Async<unit>
+    DeleteGame: Guid -> Async<bool>
 }

@@ -7,9 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="Mapper.fs" />
     <Compile Include="Services\StatisticsService.fs" />
     <Compile Include="Services\PlayerService.fs" />
     <Compile Include="Services\GameService.fs" />
+    <Compile Include="DI.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
@@ -20,6 +22,7 @@
   <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore.Server.Reflection" Version="2.67.0" />
     <PackageReference Include="Grpc.Reflection" Version="2.67.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.2" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
 	  <PackageReference Include="protobuf-net.Grpc" Version="1.2.2" />
 	  <PackageReference Include="protobuf-net.Grpc.AspNetCore" Version="1.2.2" />
@@ -27,6 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BasketballStats.Data\BasketballStats.Data.fsproj" />
     <ProjectReference Include="..\BasketballStats.Protos\BasketballStats.Protos.csproj" />
   </ItemGroup>
 

@@ -12,5 +12,4 @@ type Game = {
     Date: DateTime
     TeamA: Team
     TeamB: Team
-    Statistics: Statistic list
 }

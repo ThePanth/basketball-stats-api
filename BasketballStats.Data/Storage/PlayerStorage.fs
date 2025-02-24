@@ -4,8 +4,9 @@ open System
 open BasketballStats.Data.Models
 
 type PlayerStorage = {
-    InsertPlayer: Player -> Async<unit>
+    InsertPlayer: Player -> Async<Player>
     GetPlayer: Guid -> Async<Player option>
-    UpdatePlayer: Player -> Async<unit>
-    DeletePlayer: Guid -> Async<unit>
+    UpdatePlayer: Player -> Async<bool>
+    DeletePlayer: Guid -> Async<bool>
+    GetAll: unit -> Async<Player list>
 }

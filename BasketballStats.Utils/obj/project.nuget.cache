@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "L9upRP0l3bg=",
+  "success": true,
+  "projectFilePath": "D:\\Dev\\basketball-stats-api\\BasketballStats.Utils\\BasketballStats.Utils.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\artem\\.nuget\\packages\\fsharp.core\\9.0.201\\fsharp.core.9.0.201.nupkg.sha512"
+  ],
+  "logs": []
+}

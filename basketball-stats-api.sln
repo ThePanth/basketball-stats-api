@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.13.35818.85
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BasketballStats.Core", "BasketballStats.Core\BasketballStats.Core.fsproj", "{AFC8ECC0-A7CA-4D55-9FF5-4E2481B8B1C9}"
-EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BasketballStats.Data", "BasketballStats.Data\BasketballStats.Data.fsproj", "{AFB4565E-5662-40D8-96DC-48626A85FBCA}"
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BasketballStats.Auth", "BasketballStats.Auth\BasketballStats.Auth.fsproj", "{DDE01485-6F5A-4CC7-9540-2647B5A0C830}"
@@ -13,16 +11,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketballStats.Protos", "B
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BasketballStats.Api", "BasketballStats.Api\BasketballStats.Api.fsproj", "{AC8802C0-D9FF-4EDF-AED4-47FE16F3EE78}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "BasketballStats.Utils", "BasketballStats.Utils\BasketballStats.Utils.fsproj", "{0EFB2380-02B2-46CC-ACEF-2E90A81513F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AFC8ECC0-A7CA-4D55-9FF5-4E2481B8B1C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AFC8ECC0-A7CA-4D55-9FF5-4E2481B8B1C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AFC8ECC0-A7CA-4D55-9FF5-4E2481B8B1C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AFC8ECC0-A7CA-4D55-9FF5-4E2481B8B1C9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AFB4565E-5662-40D8-96DC-48626A85FBCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AFB4565E-5662-40D8-96DC-48626A85FBCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFB4565E-5662-40D8-96DC-48626A85FBCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{AC8802C0-D9FF-4EDF-AED4-47FE16F3EE78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC8802C0-D9FF-4EDF-AED4-47FE16F3EE78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC8802C0-D9FF-4EDF-AED4-47FE16F3EE78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EFB2380-02B2-46CC-ACEF-2E90A81513F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EFB2380-02B2-46CC-ACEF-2E90A81513F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EFB2380-02B2-46CC-ACEF-2E90A81513F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EFB2380-02B2-46CC-ACEF-2E90A81513F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

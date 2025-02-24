@@ -1,12 +1,18 @@
 ﻿namespace BasketballStats.Api.Services
 
 open BasketballStats.Protos
+open BasketballStats.Data.Storage
+open BasketballStats.Api.Mapper
 
-type PlayerService() =
+type PlayerService(storage: PlayerStorage) =
     inherit BasketballStats.Protos.PlayerService.PlayerServiceBase()
 
     override _.CreatePlayer (request: CreatePlayerRequest, context: Grpc.Core.ServerCallContext): System.Threading.Tasks.Task<PlayerResponse> = 
-        base.CreatePlayer(request, context)
+        request
+        |> fromCreatePlayerRequest
+        |> storage.InsertPlayer
+        |> Async.map toGrpcPlayerResponse
+        |> Async.StartAsTask
 
     override _.GetPlayer (request: GetPlayerRequest, context: Grpc.Core.ServerCallContext): System.Threading.Tasks.Task<PlayerResponse> = 
         base.GetPlayer(request, context)
@@ -18,6 +24,8 @@ type PlayerService() =
         base.DeletePlayer(request, context)
 
     override _.ListPlayers (request: ListPlayersRequest, context: Grpc.Core.ServerCallContext): System.Threading.Tasks.Task<ListPlayersResponse> = 
-        base.ListPlayers(request, context)
+        storage.GetAll()
+        |> Async.map toGrpcList
+        |> Async.StartAsTask
     
 
